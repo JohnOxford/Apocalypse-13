@@ -158,6 +158,11 @@
 			trans_data = copy_data(T)
 		R.add_reagent(T.id, transfer_amount * multiplier, trans_data, chem_temp, no_react = 1) //we only handle reaction after every reagent has been transfered.
 		remove_reagent(T.id, transfer_amount)
+	if(istype(current_reagent,/datum/reagent/consumable))
+		var/datum/reagent/consumable/drink = current_reagent
+		H.water += drink.water_level * amount * 2
+	if(istype(current_reagent,/datum/reagent/water))
+		H.water += amount * 3
 
 	update_total()
 	R.update_total()
