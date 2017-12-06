@@ -1,82 +1,84 @@
-/mob/living
-	see_invisible = SEE_INVISIBLE_LIVING
-	sight = 0
-	see_in_dark = 2
-	hud_possible = list(HEALTH_HUD,STATUS_HUD,ANTAG_HUD)
-	pressure_resistance = 10
+#define DEBUG					//Enables byond profiling and full runtime logs - note, this may also be defined in your .dme file
+								//Enables in-depth debug messages to runtime log (used for debugging)
+//#define TESTING				//By using the testing("message") proc you can create debug-feedback for people with this
+								//uncommented, but not visible in the release version)
 
-	//Health and life related vars
-	var/maxHealth = 100 //Maximum health that should be possible.
-	var/health = 100 	//A mob's health
+#ifdef TESTING
+//#define GC_FAILURE_HARD_LOOKUP	//makes paths that fail to GC call find_references before del'ing.
+								//implies FIND_REF_NO_CHECK_TICK
 
-	//Damage related vars, NOTE: THESE SHOULD ONLY BE MODIFIED BY PROCS
-	var/bruteloss = 0	//Brutal damage caused by brute force (punching, being clubbed by a toolbox ect... this also accounts for pressure damage)
-	var/oxyloss = 0		//Oxygen depravation damage (no air in lungs)
-	var/toxloss = 0		//Toxic damage caused by being poisoned or radiated
-	var/fireloss = 0	//Burn damage caused by being way too hot, too cold or burnt.
-	var/cloneloss = 0	//Damage caused by being cloned or ejected from the cloner early. slimes also deal cloneloss damage to victims
-	var/brainloss = 0	//'Retardation' damage caused by someone hitting you in the head with a bible or being infected with brainrot.
-	var/staminaloss = 0		//Stamina damage, or exhaustion. You recover it slowly naturally, and are knocked down if it gets too high. Holodeck and hallucinations deal this.
+//#define FIND_REF_NO_CHECK_TICK	//Sets world.loop_checks to false and prevents find references from sleeping
 
 
-	var/hallucination = 0 //Directly affects how long a mob will hallucinate for
+//#define VISUALIZE_ACTIVE_TURFS	//Highlights atmos active turfs in green
+#endif
 
-	var/last_special = 0 //Used by the resist verb, likely used to prevent players from bypassing next_move by logging in/out.
+#define PRELOAD_RSC	1			/*set to:
+								0 to allow using external resources or on-demand behaviour;
+								1 to use the default behaviour;
+								2 for preloading absolutely everything;
+								*/
 
-	//Allows mobs to move through dense areas without restriction. For instance, in space or out of holder objects.
-	var/incorporeal_move = FALSE //FALSE is off, INCORPOREAL_MOVE_BASIC is normal, INCORPOREAL_MOVE_SHADOW is for ninjas
-								 //and INCORPOREAL_MOVE_JAUNT is blocked by holy water/salt
+#define BACKGROUND_ENABLED 0    // The default value for all uses of set background. Set background can cause gradual lag and is recommended you only turn this on if necessary.
+								// 1 will enable set background. 0 will disable set background.
 
-	var/list/surgeries = list()	//a list of surgery datums. generally empty, they're added when the player wants them.
+//ADMIN STUFF
+#define ROUNDSTART_LOGOUT_REPORT_TIME	6000 //Amount of time (in deciseconds) after the rounds starts, that the player disconnect report is issued.
 
-	var/now_pushing = null //used by living/Collide() and living/PushAM() to prevent potential infinite loop.
+#define SPAM_TRIGGER_WARNING	5	//Number of identical messages required before the spam-prevention will warn you to stfu
+#define SPAM_TRIGGER_AUTOMUTE	10	//Number of identical messages required before the spam-prevention will automute you
 
-	var/cameraFollow = null
+//Don't set this very much higher then 1024 unless you like inviting people in to dos your server with message spam
+#define MAX_MESSAGE_LEN			1024
+#define MAX_NAME_LEN			42
+#define MAX_BROADCAST_LEN		512
+#define MAX_CHARTER_LEN			80
 
-	var/tod = null // Time of death
+//MINOR TWEAKS/MISC
+#define AGE_MIN				17	//youngest a character can be
+#define AGE_MAX				85	//oldest a character can be
+#define WIZARD_AGE_MIN		30	//youngest a wizard can be
+#define APPRENTICE_AGE_MIN	29	//youngest an apprentice can be
+#define SHOES_SLOWDOWN		0	//How much shoes slow you down by default. Negative values speed you up
+#define POCKET_STRIP_DELAY			40	//time taken (in deciseconds) to search somebody's pockets
+#define DOOR_CRUSH_DAMAGE	15	//the amount of damage that airlocks deal when they crush you
 
-	var/on_fire = 0 //The "Are we on fire?" var
-	var/fire_stacks = 0 //Tracks how many stacks of fire we have on, max is usually 20
+#define THIRST_FACTOR		0.2
+#define	HUNGER_FACTOR		0.1	//factor at which mob nutrition decreases
+#define	REAGENTS_METABOLISM 0.4	//How many units of reagent are consumed per tick, by default.
+#define REAGENTS_EFFECT_MULTIPLIER (REAGENTS_METABOLISM / 0.4)	// By defining the effect multiplier this way, it'll exactly adjust all effects according to how they originally were with the 0.4 metabolism
 
-	var/bloodcrawl = 0 //0 No blood crawling, BLOODCRAWL for bloodcrawling, BLOODCRAWL_EAT for crawling+mob devour
-	var/holder = null //The holder for blood crawling
-	var/ventcrawler = 0 //0 No vent crawling, 1 vent crawling in the nude, 2 vent crawling always
-	var/limb_destroyer = 0 //1 Sets AI behavior that allows mobs to target and dismember limbs with their basic attack.
+#define MAX_STACK_AMOUNT_METAL	50
+#define MAX_STACK_AMOUNT_GLASS	50
+#define MAX_STACK_AMOUNT_RODS	60
 
-	var/mob_size = MOB_SIZE_HUMAN
-	var/transpiration_efficiency = 1.1
-	var/metabolism_efficiency = 1 //more or less efficiency to metabolize helpful/harmful reagents and regulate body temperature..
-	var/list/image/staticOverlays = list()
-	var/has_limbs = 0 //does the mob have distinct limbs?(arms,legs, chest,head)
+// AI Toggles
+#define AI_CAMERA_LUMINOSITY	5
+#define AI_VOX 1 // Comment out if you don't want VOX to be enabled and have players download the voice sounds.
 
-	var/list/pipes_shown = list()
-	var/last_played_vent
+//Additional code for the above flags.
+#ifdef TESTING
+#warn compiling in TESTING mode. testing() debug messages will be visible.
+#endif
 
-	var/smoke_delay = 0 //used to prevent spam with smoke reagent reaction on mob.
 
-	var/bubble_icon = "default" //what icon the mob uses for speechbubbles
+#ifdef GC_FAILURE_HARD_LOOKUP
+#define FIND_REF_NO_CHECK_TICK
+#endif
 
-	var/last_bumped = 0
-	var/unique_name = 0 //if a mob's name should be appended with an id when created e.g. Mob (666)
+#ifdef TRAVISTESTING
+#define TESTING
+#endif
 
-	var/list/butcher_results = null
-	var/hellbound = 0 //People who've signed infernal contracts are unrevivable.
+//Update this whenever you need to take advantage of more recent byond features
+#define MIN_COMPILER_VERSION 511
+#if DM_VERSION < MIN_COMPILER_VERSION
+//Don't forget to update this part
+#error Your version of BYOND is too out-of-date to compile this project. Go to byond.com/download and update.
+#error You need version 511 or higher
+#endif
 
-	var/list/weather_immunities = list()
-
-	var/stun_absorption = null //converted to a list of stun absorption sources this mob has when one is added
-
-	var/blood_volume = 0 //how much blood the mob has
-	var/obj/effect/proc_holder/ranged_ability //Any ranged ability the mob has, as a click override
-
-	var/list/status_effects //a list of all status effects the mob has
-
-	var/list/implants = null
-
-	var/datum/riding/riding_datum
-
-	var/datum/language/selected_default_language
-
-	var/last_words	//used for database logging
-
-	var/list/obj/effect/proc_holder/abilities = list()
+//Update this whenever the db schema changes
+//make sure you add an update to the schema_version stable in the db changelog
+#define DB_MAJOR_VERSION 4
+#define DB_MINOR_VERSION 0
