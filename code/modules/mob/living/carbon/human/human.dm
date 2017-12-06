@@ -5,6 +5,7 @@
 	icon = 'icons/mob/human.dmi'
 	icon_state = "caucasian_m"
 	appearance_flags = KEEP_TOGETHER|TILE_BOUND|PIXEL_SCALE
+	var/water = 500
 
 /mob/living/carbon/human/Initialize()
 	verbs += /mob/living/proc/mob_sleep
