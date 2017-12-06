@@ -970,6 +970,10 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(H.overeatduration > 1)
 			H.overeatduration -= 2 //doubled the unfat rate
 
+	if ((H.water > 0 && H.stat != DEAD) && (H.client || H.water > THIRST_LEVEL_LIGHT))
+		var/thirst_rate = THIRST_FACTOR * H.transpiration_efficiency
+		H.water = max (0, H.water - thirst_rate)
+
 	//metabolism change
 	if(H.nutrition > NUTRITION_LEVEL_FAT)
 		H.metabolism_efficiency = 1
@@ -985,7 +989,33 @@ GLOBAL_LIST_EMPTY(roundstart_races)
 		if(H.metabolism_efficiency == 1.25)
 			to_chat(H, "<span class='notice'>You no longer feel vigorous.</span>")
 		H.metabolism_efficiency = 1
-
+		
+	if(H.water > THIRST_LEVEL_LIGHT)
+		if(H.transpiration_efficiency != 1.1)
+			H << "<span class='notice'>You are no longer thirsty.</span>"
+		H.transpiration_efficiency = 1.1
+	else if(H.water > THIRST_LEVEL_MIDDLE) //LITLE THIRST
+		if(H.transpiration_efficiency != 1)
+			H << "<span class='notice'>You mouth dry.</span>"
+		H.transpiration_efficiency = 1
+	else if(H.water > THIRST_LEVEL_HARD) //MIDDLE THIRST
+		if(H.transpiration_efficiency != 0.9)
+			H << "<span class='warning'>You are very thirsty, find water.</span>"
+		H.transpiration_efficiency = 0.9
+	else if(H.water > THIRST_LEVEL_DEADLY) //HARD THIRST
+		if(H.transpiration_efficiency != 0.6)
+			H << "<span class='warning'>You are very dehydrated, find water immediately or you will perish.</span>"
+		if(prob(4))
+			H.Knockdown(50)
+		H.transpiration_efficiency = 0.6
+	else
+		if(H.transpiration_efficiency != 0.1)
+			H << "<span class='warning'>You are extremely dehydrated, death is apon you, you must find water.</span>"
+		H.adjustOxyLoss(5)
+		H.transpiration_efficiency = 0.1
+		if(prob(10))
+			H.Knockdown	(100)
+			
 	switch(H.nutrition)
 		if(NUTRITION_LEVEL_FULL to INFINITY)
 			H.throw_alert("nutrition", /obj/screen/alert/fat)
