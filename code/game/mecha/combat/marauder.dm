@@ -1,5 +1,5 @@
 /obj/mecha/combat/marauder
-	desc = "Heavy-duty, combat exosuit, developed after the Durand model. Rarely found among civilian populations."
+	desc = "A very powerful exo suit model, you're sure you never seen this kind of thing in your life."
 	name = "\improper Marauder"
 	icon_state = "marauder"
 	step_in = 5
@@ -67,7 +67,7 @@
 	ME.attach(src)
 
 /obj/mecha/combat/marauder/mauler
-	desc = "Heavy-duty, combat exosuit, developed off of the existing Marauder model."
+	desc = "A really big and strong looking exo suit, you have never seen this kind of thing in your life before."
 	name = "\improper Mauler"
 	icon_state = "mauler"
 	operation_req_access = list(ACCESS_SYNDICATE)
