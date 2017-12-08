@@ -34,7 +34,7 @@
 		if(WT.remove_fuel(0,user))
 
 			if(mineralType == "plasma")
-				atmos_spawn_air("plasma=5;TEMP=1000")
+				//atmos_spawn_air("plasma=5;TEMP=1000")
 				user.visible_message("<span class='warning'>[user.name] sets the plasma tiles on fire!</span>", \
 									"<span class='warning'>You set the plasma tiles on fire!</span>")
 				qdel(src)
