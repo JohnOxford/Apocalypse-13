@@ -213,7 +213,7 @@
 		TemperatureAct()
 
 /obj/structure/mineral_door/transparent/plasma/proc/TemperatureAct()
-	atmos_spawn_air("plasma=500;TEMP=1000")
+	//atmos_spawn_air("plasma=500;TEMP=1000")
 	deconstruct(FALSE)
 
 /obj/structure/mineral_door/transparent/diamond
