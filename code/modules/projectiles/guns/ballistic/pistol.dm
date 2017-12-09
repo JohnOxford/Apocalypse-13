@@ -9,6 +9,28 @@
 	fire_delay = 0
 	actions_types = list()
 
+/obj/item/gun/ballistic/automatic/pistol/tac
+	name = "stechkin tactical pistol"
+	desc = "A midsize tactical pistol commonly used by russian special forces. Uses 10mm ammo."
+	icon_state = "tacstet"
+	w_class = WEIGHT_CLASS_SMALL
+	mag_type = /obj/item/ammo_box/magazine/m10mm
+	can_suppress = TRUE
+	burst_size = 1
+	fire_delay = 0
+	actions_types = list()
+
+/obj/item/gun/ballistic/automatic/pistol/APS
+	name = "stechkin APS pistol"
+	desc = "A soviet made automatic pistol, it smells heavily of cosmoline. Uses 9mm ammo."
+	icon_state = "stetaps"
+	w_class = WEIGHT_CLASS_SMALL
+	mag_type = /obj/item/ammo_box/magazine/pistolm9mm
+	can_suppress = FALSE
+	burst_size = 3
+	fire_delay = 2
+	actions_types = list(/datum/action/item_action/toggle_firemode)
+
 /obj/item/gun/ballistic/automatic/pistol/update_icon()
 	..()
 	icon_state = "[initial(icon_state)][chambered ? "" : "-e"][suppressed ? "-suppressed" : ""]"
@@ -21,6 +43,22 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	mag_type = /obj/item/ammo_box/magazine/m45
 	can_suppress = FALSE
+
+/obj/item/gun/ballistic/automatic/pistol/m1911/compact
+	name = "\improper M1911 compact"
+	desc = "A classic .45 handgun with a small magazine capacity, this one has been lightened and downsized for easier carry."
+	icon_state = "m1911com"
+	w_class = WEIGHT_CLASS_SMALL
+	mag_type = /obj/item/ammo_box/magazine/m45
+	can_suppress = FALSE
+
+/obj/item/gun/ballistic/automatic/pistol/m1911/tactical
+	name = "\improper M1911 tactical"
+	desc = "A tactical .45 handgun with a extended magazine capacity. This one appears to be made out of titanium, with a fluted slide, and threaded barrel."
+	icon_state = "m1911tac"
+	w_class = WEIGHT_CLASS_NORMAL
+	mag_type = /obj/item/ammo_box/magazine/m45
+	can_suppress = TRUE
 
 /obj/item/gun/ballistic/automatic/pistol/deagle
 	name = "desert eagle"
@@ -40,7 +78,7 @@
 	icon_state = "[initial(icon_state)][chambered ? "" : "-e"]"
 
 /obj/item/gun/ballistic/automatic/pistol/deagle/gold
-	desc = "A gold plated desert eagle folded over a million times by superior martian gunsmiths. Uses .50 AE ammo."
+	desc = "A desert eagle that's been powder coated gold. Uses .50 AE ammo."
 	icon_state = "deagleg"
 	item_state = "deagleg"
 
@@ -48,17 +86,6 @@
 	desc = "A Deagle brand Deagle for operators operating operationally. Uses .50 AE ammo."
 	icon_state = "deaglecamo"
 	item_state = "deagleg"
-
-/obj/item/gun/ballistic/automatic/pistol/APS
-	name = "stechkin APS pistol"
-	desc = "The original russian version of a widely used Syndicate sidearm. Uses 9mm ammo."
-	icon_state = "aps"
-	w_class = WEIGHT_CLASS_SMALL
-	mag_type = /obj/item/ammo_box/magazine/pistolm9mm
-	can_suppress = FALSE
-	burst_size = 3
-	fire_delay = 2
-	actions_types = list(/datum/action/item_action/toggle_firemode)
 
 /obj/item/gun/ballistic/automatic/pistol/stickman
 	name = "flat gun"
