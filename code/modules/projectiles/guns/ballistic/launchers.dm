@@ -20,8 +20,8 @@
 		chamber_round()
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/cyborg
-	desc = "A 6-shot grenade launcher."
-	name = "multi grenade launcher"
+	desc = "A 6-shot rotary 40mm grenade launcher."
+	name = "milkor MGL"
 	icon = 'icons/mecha/mecha_equipment.dmi'
 	icon_state = "mecha_grenadelnchr"
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/grenademulti
@@ -75,8 +75,8 @@
 		chamber_round()
 
 /obj/item/gun/ballistic/automatic/atlauncher
-	desc = "A pre-loaded, single shot anti-armour launcher."
-	name = "anti-armour grenade launcher"
+	desc = "A pre-loaded, single shot anti-armour shaped charge rocket launcher."
+	name = "RPG-6"
 	icon_state = "rocketlauncher"
 	item_state = "rocketlauncher"
 	mag_type = /obj/item/ammo_box/magazine/internal/rocketlauncher
