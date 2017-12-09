@@ -262,7 +262,7 @@
 		ticks = 0
 	var/turf/open/T = get_turf(src)
 	if(istype(T))
-		T.atmos_spawn_air("o2=5;plasma=5;TEMP=1000")
+		T.atmos_spawn_air("o2=5;TEMP=1000")
 
 /obj/effect/anomaly/pyro/detonate()
 	INVOKE_ASYNC(src, .proc/makepyroslime)

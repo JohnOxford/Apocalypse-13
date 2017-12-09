@@ -253,7 +253,7 @@
 
 /obj/structure/falsewall/plasma/proc/burnbabyburn(user)
 	playsound(src, 'sound/items/welder.ogg', 100, 1)
-	atmos_spawn_air("plasma=400;TEMP=1000")
+	//atmos_spawn_air("plasma=400;TEMP=1000")
 	new /obj/structure/girder/displaced(loc)
 	qdel(src)
 
