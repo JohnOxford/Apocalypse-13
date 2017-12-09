@@ -233,6 +233,42 @@
 	burst_size = 3
 	fire_delay = 1
 
+/obj/item/gun/ballistic/automatic/ar/standard
+	name = "AR-10"
+	desc = "A standard American made combat rifle, chambered in 5.56x45mm NATO."
+	icon_state = "ar35"
+	item_state = "arg"
+	slot_flags = 0
+	mag_type = /obj/item/ammo_box/magazine/m556
+	fire_sound = 'sound/weapons/gunshot_smg.ogg'
+	can_suppress = FALSE
+	burst_size = 3
+	fire_delay = 1
+
+/obj/item/gun/ballistic/automatic/ar/carbine
+	name = "AR-10 Carbine"
+	desc = "A standard American made combat rifle, chambered in 5.56x45mm NATO. This one is locked to semi automatic."
+	icon_state = "ar35-c"
+	item_state = "arg"
+	slot_flags = 0
+	mag_type = /obj/item/ammo_box/magazine/m556
+	fire_sound = 'sound/weapons/gunshot_smg.ogg'
+	can_suppress = FALSE
+	burst_size = 1
+	fire_delay = 0
+
+/obj/item/gun/ballistic/automatic/ar/tactical
+	name = "AR-10 Tactical"
+	desc = "A standard American made combat rifle, chambered in 5.56x45mm NATO. This one is sporting a foward grip and red dot sight, with a threaded barrel too."
+	icon_state = "ar35t"
+	item_state = "arg"
+	slot_flags = 0
+	mag_type = /obj/item/ammo_box/magazine/m556
+	fire_sound = 'sound/weapons/gunshot_smg.ogg'
+	can_suppress = TRUE
+	burst_size = 2
+	fire_delay = 0.5
+
 // Bulldog shotgun //
 
 /obj/item/gun/ballistic/automatic/shotgun/bulldog
@@ -366,6 +402,45 @@
 	zoom_out_amt = 13
 	slot_flags = SLOT_BACK
 	actions_types = list()
+
+/obj/item/gun/ballistic/automatic/BA50t
+	name = "Bushmaster BA50 Tactical"
+	desc = "A 50 BMG bolt action long range sniper rifle. This one has a threaded barrel."
+	icon_state = "sniper"
+	item_state = "sniper"
+	recoil = 2
+	weapon_weight = WEAPON_HEAVY
+	mag_type = /obj/item/ammo_box/magazine/sniper_rounds
+	fire_delay = 40
+	burst_size = 1
+	can_unsuppress = TRUE
+	can_suppress = TRUE
+	w_class = WEIGHT_CLASS_NORMAL
+	zoomable = TRUE
+	zoom_amt = 10 //Long range, enough to see in front of you, but no tiles behind you.
+	zoom_out_amt = 13
+	slot_flags = SLOT_BACK
+	actions_types = list()
+
+/obj/item/gun/ballistic/automatic/BA50
+	name = "Bushmaster BA50"
+	desc = "A 50 BMG bolt action long range sniper rifle."
+	icon_state = "sniper"
+	item_state = "sniper"
+	recoil = 2
+	weapon_weight = WEAPON_HEAVY
+	mag_type = /obj/item/ammo_box/magazine/sniper_rounds
+	fire_delay = 40
+	burst_size = 1
+	can_unsuppress = FALSE
+	can_suppress = FALSE
+	w_class = WEIGHT_CLASS_NORMAL
+	zoomable = TRUE
+	zoom_amt = 10 //Long range, enough to see in front of you, but no tiles behind you.
+	zoom_out_amt = 13
+	slot_flags = SLOT_BACK
+	actions_types = list()
+
 
 
 /obj/item/gun/ballistic/automatic/sniper_rifle/update_icon()
