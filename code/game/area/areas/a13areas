@@ -1,0 +1,16 @@
+/area/a13/outside
+	name = "Outdoors"
+	icon_state = "explored"
+	music = null
+	always_unpowered = TRUE
+	requires_power = FALSE
+	poweralm = FALSE
+	power_environ = FALSE
+	power_equip = FALSE
+	power_light = FALSE
+	outdoors = TRUE
+	flags_1 = NONE
+	has_gravity = TRUE
+
+
+
