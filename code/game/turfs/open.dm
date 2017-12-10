@@ -7,6 +7,7 @@
 	var/postdig_icon_change = FALSE
 	var/postdig_icon
 	var/list/archdrops
+	var/sun_light
 
 /turf/open/indestructible
 	name = "floor"
@@ -15,6 +16,27 @@
 
 /turf/open/indestructible/TerraformTurf(path, defer_change = FALSE, ignore_air = FALSE)
 	return
+
+turf/open/New()
+	..()
+	var/area/area = src.loc
+	if(area && area.outdoors)
+		sun_light = SSdayandnight.global_sun_light
+
+
+/turf/open/proc/update_sunlight()
+	var/lum = 0
+	sun_light = SSdayandnight.global_sun_light
+	if(sun_light && !density)
+		for(var/turf/T in RANGE_TURFS(1,src))
+			var/turf/open/g = T
+			if(!g.density)
+				lum = 1
+				break
+	if(lum)
+		set_light(0, sun_light)
+		return
+	set_light(0, 0)
 
 /turf/open/indestructible/sound
 	name = "squeeky floor"
