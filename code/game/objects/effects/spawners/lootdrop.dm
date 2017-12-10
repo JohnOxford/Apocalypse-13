@@ -194,3 +194,21 @@
 				/obj/item/aiModule/core/full/tyrant,
 				/obj/item/aiModule/core/full/thermurderdynamic
 				)
+
+///////////////////Apocalypse 13 based loot drops///////////////////
+
+/obj/effect/spawner/lootdrop/a13/clothing/twowinterclothing
+	lootcount = 2
+	lootdoubles = FALSE
+	loot = list(
+			/obj/item/clothing/suit/hooded/wintercoat,
+			/obj/item/clothing/suit/hooded/wintercoat/captain,
+			/obj/item/clothing/suit/hooded/wintercoat/security,
+			/obj/item/clothing/suit/hooded/wintercoat/medical,
+			/obj/item/clothing/suit/hooded/wintercoat/science,
+			/obj/item/clothing/suit/hooded/wintercoat/engineering,
+			/obj/item/clothing/suit/hooded/wintercoat/engineering/atmos,
+			/obj/item/clothing/suit/hooded/wintercoat/hydro,
+			/obj/item/clothing/suit/hooded/wintercoat/cargo,
+			/obj/item/clothing/suit/hooded/wintercoat/miner
+			)
