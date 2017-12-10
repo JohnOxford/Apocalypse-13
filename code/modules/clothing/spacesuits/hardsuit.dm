@@ -253,8 +253,8 @@
 	//Syndicate hardsuit
 /obj/item/clothing/head/helmet/space/hardsuit/syndi
 	name = "blood-red hardsuit helmet"
-	desc = "A dual-mode advanced helmet designed for work in special operations. It is in EVA mode. Property of some [REDACTED]."
-	alt_desc = "A dual-mode advanced helmet designed for work in special operations. It is in combat mode. Property of some [REDACTED]."
+	desc = "A dual-mode advanced helmet designed for work in special operations. It is in EVA mode. Property of some (REDACTED)."
+	alt_desc = "A dual-mode advanced helmet designed for work in special operations. It is in combat mode. Property of some (REDACTED)."
 	icon_state = "hardsuit1-syndi"
 	item_state = "syndie_helm"
 	item_color = "syndi"
@@ -330,8 +330,8 @@
 
 /obj/item/clothing/suit/space/hardsuit/syndi
 	name = "blood-red hardsuit"
-	desc = "A dual-mode advanced hardsuit designed for work in special operations. It is in EVA mode. Property of [REDACTED]."
-	alt_desc = "A dual-mode advanced hardsuit designed for work in special operations. It is in combat mode. Property of [REDACTED]."
+	desc = "A dual-mode advanced hardsuit designed for work in special operations. It is in EVA mode. Property of (REDACTED)."
+	alt_desc = "A dual-mode advanced hardsuit designed for work in special operations. It is in combat mode. Property of (REDACTED)."
 	icon_state = "hardsuit1-syndi"
 	item_state = "syndie_hardsuit"
 	item_color = "syndi"
@@ -344,8 +344,8 @@
 //Elite Syndie suit
 /obj/item/clothing/head/helmet/space/hardsuit/syndi/elite
 	name = "elite government MES helmet"
-	desc = "An elite version of the government MES helmet, with improved armour and fireproofing. It is in EVA mode. Property of [REDACTED]."
-	alt_desc = "An elite version of the government MES helmet, with improved armour and fireproofing. It is in combat mode. Property of [REDACTED]."
+	desc = "An elite version of the government MES helmet, with improved armour and fireproofing. It is in EVA mode. Property of (REDACTED)."
+	alt_desc = "An elite version of the government MES helmet, with improved armour and fireproofing. It is in combat mode. Property of (REDACTED)."
 	icon_state = "hardsuit0-syndielite"
 	item_color = "syndielite"
 	armor = list(melee = 80, bullet = 80, laser = 50, energy = 25, bomb = 55, bio = 100, rad = 100, fire = 100, acid = 100)
