@@ -232,7 +232,7 @@ GLOBAL_LIST_EMPTY(uplink_items) // Global list so we only initialize this once.
 
 /datum/uplink_item/dangerous/flamethrower
 	name = "Flamethrower"
-	desc = "A flamethrower, fueled by a portion of highly flammable biotoxins stolen previously from [redacted] \
+	desc = "A flamethrower, fueled by a portion of highly flammable biotoxins stolen previously from (REDACTED) \
 			stations. Make a statement by roasting the filth in their own greed. Use with caution."
 	item = /obj/item/flamethrower/full/tank
 	cost = 4
@@ -951,7 +951,7 @@ GLOBAL_LIST_EMPTY(uplink_items) // Global list so we only initialize this once.
 /datum/uplink_item/device_tools/magboots
 	name = "Blood-Red Magboots"
 	desc = "A pair of magnetic boots with a crimson red and black paintjob that assist with freer movement in space or on-station \
-			during gravitational generator failures. These reverse-engineered knockoffs of [redacted] \
+			during gravitational generator failures. These reverse-engineered knockoffs of (REDACTED) \
 			slow you down in simulated-gravity environments much like the standard issue variety."
 	item = /obj/item/clothing/shoes/magboots/syndie
 	cost = 2
