@@ -1,5 +1,12 @@
 <!-- Most valid html will work in here, excluding images. -->
 
-<h1>Welcome to Space Station 13!</h1>
+<h1>Welcome to Apocalypse 13!</h1>
 
-<i>This server is running a /tg/station 13 Git build.</i>
+Discord: https://discord.gg/6bFa38R
+Wiki: http://apocalypse13.wikia.com/wiki/Apocalypse-13_Wiki
+Fourms: -under construction
+
+This server is running a modern revision of /tg/ code, having been heavily modified to support the purpose of the server.
+
+If you are interested in becoming a developer, please PM our Head Developer over discord.
+If you are interested in becoming a admin, please pm our Head Admin over discord.
