@@ -8,7 +8,7 @@
 	actions_types = list(/datum/action/item_action/toggle_firemode)
 
 /obj/item/gun/ballistic/automatic/proto
-	name = "\improper Nanotrasen Saber SMG"
+	name = "\improper SABR SMG"
 	desc = "A prototype three-round burst 9mm submachine gun, designated 'SABR'. Has a threaded barrel for suppressors."
 	icon_state = "saber"
 	mag_type = /obj/item/ammo_box/magazine/smgm9mm
@@ -150,6 +150,29 @@
 	fire_delay = 2
 	pin = /obj/item/device/firing_pin/implant/pindicate
 
+/obj/item/gun/ballistic/automatic/m90/normal
+	name = "\improper P90"
+	desc = "A compact toploading submachine gun chambered in 5.56."
+	icon_state = "m90"
+	item_state = "m90"
+	mag_type = /obj/item/ammo_box/magazine/m556
+	fire_sound = 'sound/weapons/gunshot_smg.ogg'
+	can_suppress = FALSE
+	burst_size = 3
+	fire_delay = 2
+
+/obj/item/gun/ballistic/automatic/m90/tactical
+	name = "\improper P90 Tactical"
+	desc = "A compact toploading submachine gun chambered in 5.56. This one has a light weight reciever and polymer furniture, along with a threaded barrel."
+	icon_state = "m90"
+	item_state = "m90"
+	mag_type = /obj/item/ammo_box/magazine/m556
+	fire_sound = 'sound/weapons/gunshot_smg.ogg'
+	can_suppress = TRUE
+	can_unsuppress = TRUE
+	burst_size = 3
+	fire_delay = 2
+
 /obj/item/gun/ballistic/automatic/m90/Initialize()
 	. = ..()
 	underbarrel = new /obj/item/gun/ballistic/revolver/grenadelauncher(src)
@@ -221,6 +244,19 @@
 	burst_size = 4
 	fire_delay = 1
 
+/obj/item/gun/ballistic/automatic/m1a1
+	name = "\improper Thompson M1A1"
+	desc = "The military model of the Thompson submachine gun, this one is built with a sturdier reciever, but has a lower rate of fire."
+	icon_state = "tommygun"
+	item_state = "shotgun"
+	w_class = WEIGHT_CLASS_HUGE
+	slot_flags = 0
+	mag_type = /obj/item/ammo_box/magazine/tommygunm45
+	fire_sound = 'sound/weapons/gunshot_smg.ogg'
+	can_suppress = FALSE
+	burst_size = 2
+	fire_delay = 1
+
 /obj/item/gun/ballistic/automatic/ar
 	name = "\improper NT-ARG 'Boarder'"
 	desc = "A robust assault rile used by Nanotrasen fighting forces."
@@ -272,8 +308,8 @@
 // Bulldog shotgun //
 
 /obj/item/gun/ballistic/automatic/shotgun/bulldog
-	name = "\improper Bulldog Shotgun"
-	desc = "A semi-auto, mag-fed shotgun for combat in narrow corridors, nicknamed 'Bulldog' by boarding parties. Compatible only with specialized 8-round drum magazines."
+	name = "\improper D12-A Bullpup Shotgun"
+	desc = "This is a semi-automatic bullpup shotgun, constructed out of sturdy polymer with a titanium barrel and receiver. This one has been fitted to be automatic."
 	icon_state = "bulldog"
 	item_state = "bulldog"
 	w_class = WEIGHT_CLASS_NORMAL
@@ -309,9 +345,8 @@
 // L6 SAW //
 
 /obj/item/gun/ballistic/automatic/l6_saw
-	name = "\improper L6 SAW"
-	desc = "A heavily modified 1.95x129mm light machine gun, designated 'L6 SAW'. Has 'Aussec Armoury - 2531' engraved on the receiver below the designation."
-	icon_state = "l6closed100"
+	name = "\improper MK48 SAW"
+	desc = "A heavily modified 1.95x129mm light machine gun, designated as a 'MK48 SAW'."
 	item_state = "l6closedmag"
 	w_class = WEIGHT_CLASS_HUGE
 	slot_flags = 0
@@ -322,7 +357,6 @@
 	can_suppress = FALSE
 	burst_size = 3
 	fire_delay = 1
-	pin = /obj/item/device/firing_pin/implant/pindicate
 
 /obj/item/gun/ballistic/automatic/l6_saw/unrestricted
 	pin = /obj/item/device/firing_pin
@@ -385,14 +419,14 @@
 // SNIPER //
 
 /obj/item/gun/ballistic/automatic/sniper_rifle
-	name = "sniper rifle"
-	desc = "A long ranged weapon that does significant damage. No, you can't quickscope."
+	name = "Barret M107"
+	desc = "A semi automatic 50. BMG anti-material rifle."
 	icon_state = "sniper"
 	item_state = "sniper"
 	recoil = 2
 	weapon_weight = WEAPON_HEAVY
 	mag_type = /obj/item/ammo_box/magazine/sniper_rounds
-	fire_delay = 40
+	fire_delay = 5
 	burst_size = 1
 	can_unsuppress = TRUE
 	can_suppress = TRUE
