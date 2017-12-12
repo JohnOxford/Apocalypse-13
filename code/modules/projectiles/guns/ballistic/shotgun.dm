@@ -1,5 +1,5 @@
 /obj/item/gun/ballistic/shotgun
-	name = "shotgun"
+	name = "Ithaca Model 37"
 	desc = "A traditional shotgun with wood furniture and a four-shell capacity underneath."
 	icon_state = "shotgun"
 	item_state = "shotgun"
@@ -78,8 +78,8 @@
 // RIOT SHOTGUN //
 
 /obj/item/gun/ballistic/shotgun/riot //for spawn in the armory
-	name = "riot shotgun"
-	desc = "A sturdy shotgun with a longer magazine and a fixed tactical stock designed for non-lethal riot control."
+	name = "Remington 870 MCS"
+	desc = "A sturdy shotgun with a longer magazine and a fixed tactical stock."
 	icon_state = "riotshotgun"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/riot
 	sawn_desc = "Come with me if you want to live."
@@ -99,7 +99,19 @@
 
 /obj/item/gun/ballistic/shotgun/boltaction
 	name = "\improper Mosin Nagant"
-	desc = "This piece of junk looks like something that could have been used 700 years ago. It feels slightly moist."
+	desc = "A weapon of fine craftsmanship, theres a hammer and sickle seared into the stock. It smells heavily of tears and cosmoline."
+	icon_state = "moistnugget"
+	item_state = "moistnugget"
+	slot_flags = 0 //no SLOT_BACK sprite, alas
+	mag_type = /obj/item/ammo_box/magazine/internal/boltaction
+	var/bolt_open = FALSE
+	can_bayonet = TRUE
+	knife_x_offset = 27
+	knife_y_offset = 13
+
+/obj/item/gun/ballistic/shotgun/boltaction/american
+	name = "\improper M1903 Springfield"
+	desc = "A weapon of fine craftsmanship, theres a eagle seared into the stock. It smells heavily of sweat and canned SPAM."
 	icon_state = "moistnugget"
 	item_state = "moistnugget"
 	slot_flags = 0 //no SLOT_BACK sprite, alas
