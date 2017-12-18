@@ -76,15 +76,15 @@ ALERT_DELTA Destruction of the station is imminent. All crew are instructed to o
 ## Default probablity is 1, increase to make that mode more likely to be picked.
 ## Set to 0 to disable that mode.
 
-PROBABILITY TRAITOR 5
-PROBABILITY TRAITORBRO 2
-PROBABILITY TRAITORCHAN 4
-PROBABILITY INTERNAL_AFFAIRS 3
-PROBABILITY NUCLEAR 2
-PROBABILITY REVOLUTION 2
-PROBABILITY CULT 2
-PROBABILITY CHANGELING 2
-PROBABILITY WIZARD 4
+PROBABILITY TRAITOR 0 //For now we will have to manually do stuff cause memes
+PROBABILITY TRAITORBRO 0
+PROBABILITY TRAITORCHAN 0
+PROBABILITY INTERNAL_AFFAIRS 0
+PROBABILITY NUCLEAR 0
+PROBABILITY REVOLUTION 0
+PROBABILITY CULT 0
+PROBABILITY CHANGELING 0
+PROBABILITY WIZARD 0
 PROBABILITY MONKEY 0
 PROBABILITY METEOR 0
 PROBABILITY EXTENDED 0
@@ -228,14 +228,14 @@ BROTHER_OBJECTIVES_AMOUNT 2
 #ENFORCE_HUMAN_AUTHORITY
 
 ## If late-joining players have a chance to become a traitor/changeling
-ALLOW_LATEJOIN_ANTAGONISTS
+#ALLOW_LATEJOIN_ANTAGONISTS //Nup
 
 ## Uncomment to allow players to see the set odds of different rounds in secret/random in the get server revision screen. This will NOT tell the current roundtype.
 #SHOW_GAME_TYPE_ODDS
 
 ## RANDOM EVENTS ###
 ## Comment this out to disable random events during the round.
-ALLOW_RANDOM_EVENTS
+#ALLOW_RANDOM_EVENTS //Don't want to encounter those memes
 
 ## Multiplier for earliest start time of dangerous events.
 ## Set to 0 to make dangerous events avaliable from round start.
@@ -249,7 +249,7 @@ EVENTS_MIN_PLAYERS_MUL 1
 ## AI ###
 
 ## Allow the AI job to be picked.
-ALLOW_AI
+#ALLOW_AI
 
 ## Secborg ###
 ## Uncomment to prevent the security cyborg module from being chosen
@@ -271,7 +271,7 @@ GATEWAY_DELAY 18000
 ## If the number of players ready at round starts exceeds this threshold, JOBS_HAVE_MINIMAL_ACCESS will automatically be enabled. Otherwise, it will be disabled.
 ## This is useful for accomodating both low and high population rounds on the same server.
 ## Comment this out or set to 0 to disable this automatic toggle.
-MINIMAL_ACCESS_THRESHOLD 20
+#MINIMAL_ACCESS_THRESHOLD 20
 
 ## Comment this out this if you wish to use the setup where jobs have more access.
 ## This is intended for servers with low populations - where there are not enough
@@ -391,9 +391,9 @@ SILICON_MAX_LAW_AMOUNT 12
 ROUNDSTART_RACES human
 
 ## Races that are strictly worse than humans that could probably be turned on without balance concerns
-ROUNDSTART_RACES lizard
+#ROUNDSTART_RACES lizard //Don't really need that
 #ROUNDSTART_RACES fly
-ROUNDSTART_RACES plasmaman
+#ROUNDSTART_RACES plasmaman //NOPE
 #ROUNDSTART_RACES shadow
 
 ## Races that are better than humans in some ways, but worse in others
@@ -469,10 +469,10 @@ BOMBCAP 20
 ## a less lootfilled or smaller or less round effecting ruin costs less to
 ## spawn, while the converse is true. Alter this number to affect the amount
 ## of ruins.
-LAVALAND_BUDGET 60
+LAVALAND_BUDGET 0 //No ruins
 
 ## Space Ruin Budged
-Space_Budget 16
+Space_Budget 0 //None here
 
 ## Time in ds from when a player latejoins till the arrival shuttle docks at the station
 ## Must be at least 30. At least 55 recommended to be visually/aurally appropriate
@@ -486,7 +486,7 @@ ARRIVALS_SHUTTLE_DOCK_WINDOW 55
 
 ## How many wirechewing rodents you want to spawn on exposed maintenane wires at the start of the round. You may wish to set this to 0 if you're testing powernets.
 
-MICE_ROUNDSTART 10
+MICE_ROUNDSTART 0
 
 ## If the percentage of players alive (doesn't count conversions) drops below this threshold the emergency shuttle will be forcefully called (provided it can be)
 #EMERGENCY_SHUTTLE_AUTOCALL_THRESHOLD 0.2
